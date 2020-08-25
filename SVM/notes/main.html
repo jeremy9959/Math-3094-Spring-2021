@@ -29,17 +29,17 @@
 <p>Let us begin our discussion with a very simple dataset (see <span class="citation" data-cites="penguins">[<a href="#ref-penguins" role="doc-biblioref">2</a>]</span> and <span class="citation" data-cites="penguindata">[<a href="#ref-penguindata" role="doc-biblioref">3</a>]</span>). This data consists of various measurements of physical characteristics of 344 penguins of 3 different species: Gentoo, Adelie, and Chinstrap. If we focus our attention for the moment on the Adelie and Gentoo species, and plot their body mass against their culmen depth, we obtain the following scatterplot.</p>
 <div id="fig:penguins" class="fignos">
 <figure>
-<img src="../img/penguins.png" style="width:50.0%" alt="" /><figcaption><span>Figure 1:</span> Penguin Scatterplot</figcaption>
+<img src="../img/penguins.png" style="width:50.0%" alt="Figure 1: Penguin Scatterplot" /><figcaption aria-hidden="true"><span>Figure 1:</span> Penguin Scatterplot</figcaption>
 </figure>
 </div>
 <p>Incidentally, a bird’s <em>culmen</em> is the upper ridge of their beak, and the <em>culmen depth</em> is a measure of the thickness of the beak. There’s a nice picture at <span class="citation" data-cites="penguindata">[<a href="#ref-penguindata" role="doc-biblioref">3</a>]</span> for the penguin enthusiasts.</p>
 <p>A striking feature of this scatter plot is that there is a clear separation between the clusters of Adelie and Gentoo penguins. Adelie penguins have deeper culmens and less body mass than Gentoo penguins. These characteristics seem like they should provide a way to classify a penguin between these two species based on these two measurements.</p>
-<p>One way to express the separation between these two clusters is to observe that one can draw a line on the graph with the property that all of the Adelie penguins lie on one side of that line and all of the Gentoo penguins lie on the other. In fig. <a href="#fig:penguinsline">2</a> I’ve drawn in such a line (which I found by eyeballing the picture in fig. <a href="#fig:penguins">1</a>). The line has the equation <span class="math display">\[
+<p>One way to express the separation between these two clusters is to observe that one can draw a line on the graph with the property that all of the Adelie penguins lie on one side of that line and all of the Gentoo penguins lie on the other. In fig. <a href="#fig:penguinsline">2</a> I’ve drawn in such a line (which I found by eyeballing the picture in fig. <a href="#fig:penguins">1</a>). The line has the equation <span class="math display">\[
 Y = 250X+400.
 \]</span></p>
 <div id="fig:penguinsline" class="fignos">
 <figure>
-<img src="../img/penguins_with_line.png" style="width:50.0%" alt="" /><figcaption><span>Figure 2:</span> Penguins with Separating Line</figcaption>
+<img src="../img/penguins_with_line.png" style="width:50.0%" alt="Figure 2: Penguins with Separating Line" /><figcaption aria-hidden="true"><span>Figure 2:</span> Penguins with Separating Line</figcaption>
 </figure>
 </div>
 <p>The fact that all of the Gentoo penguins lie above this line means that, for the Gentoo penguins, their body mass in grams is at least <span class="math inline">\(400\)</span> more than <span class="math inline">\(250\)</span> times their culmen depth in mm.</p>
@@ -66,13 +66,13 @@ f(x) = f(x_1,\ldots, x_k) = a_1 x_1 + a_2 x_2 +\cdots + a_k x_k + b
 </ol>
 <p>For the moment, we will table the first question, and <em>assume</em> that our data belongs to two classes that are linearly separable, and we will look at one possible answer to the second question: what’s the best separating hyperplane?</p>
 <h2 data-number="1.4" id="margins"><span class="header-section-number">1.4</span> Margins</h2>
-<p>Let’s look at a simplified version of the penguin data, where we have two linearly separable clusters of points in the plane. In fig. <a href="#fig:penguinsimple">3</a> we show a plot of a randomly selected subset of the penguin points, along with the line <span class="math inline">\(Y=250X+400\)</span> that we eyeballed earlier.</p>
+<p>Let’s look at a simplified version of the penguin data, where we have two linearly separable clusters of points in the plane. In fig. <a href="#fig:penguinsimple">3</a> we show a plot of a randomly selected subset of the penguin points, along with the line <span class="math inline">\(Y=250X+400\)</span> that we eyeballed earlier.</p>
 <div id="fig:penguinsimple" class="fignos">
 <figure>
-<img src="../img/penguinsimple.png" style="width:50.0%" alt="" /><figcaption><span>Figure 3:</span> A subset of penguins</figcaption>
+<img src="../img/penguinsimple.png" style="width:50.0%" alt="Figure 3: A subset of penguins" /><figcaption aria-hidden="true"><span>Figure 3:</span> A subset of penguins</figcaption>
 </figure>
 </div>
-<p>One way to measure how well this line separates the two clusters is to ask how close the nearest point in each cluster is to the line. Looking at fig. <a href="#fig:penguinsimple">3</a>, you’ll notice that the line is closer to the green (Gentoo) cluster than it is to the blue (Adelie) cluster. So, at least as far as this subset of the data is concerned, we could get better separation if we moved the line downwards.</p>
+<p>One way to measure how well this line separates the two clusters is to ask how close the nearest point in each cluster is to the line. Looking at fig. <a href="#fig:penguinsimple">3</a>, you’ll notice that the line is closer to the green (Gentoo) cluster than it is to the blue (Adelie) cluster. So, at least as far as this subset of the data is concerned, we could get better separation if we moved the line downwards.</p>
 <p>Of course, we could also tilt the line by changing its slope, and perhaps if we increased the slope a bit, that would get us better separation as well.</p>
 <p>In any case, this suggests that we measure the effectiveness of our line at separating the two clusters by <em>looking at the distance from the line to the closest point(s) in each cluster, and trying to make those distances as large as possible.</em></p>
 <p>The following lemma reminds us of a few facts about hyperplanes in <span class="math inline">\(\mathbf{R}^{k}\)</span>, including how to compute the distance from a point to a line (or to a hyperplane in higher dimensions).</p>
@@ -85,7 +85,7 @@ f(x)=w\cdot x+b.
 D = \frac{f(p)}{\|w\|}
 \]</span></li>
 </ul>
-<h1 class="unnumbered" data-number="" id="bibliography">References</h1>
+<h1 class="unnumbered" id="bibliography">References</h1>
 <div id="refs" class="references" role="doc-bibliography">
 <div id="ref-vapnik92">
 <p>[1] <span class="smallcaps">Boser</span>, B., <span class="smallcaps">Guyon</span>, I. and <span class="smallcaps">Vapnik</span>, V. A training algorithm for optimal margin classifiers. In <em>Colt ’92: Proceedings of the fifth annual workshop on computational learning theory</em> (D. Haussler, ed) pp 144–52. ACM.</p>
